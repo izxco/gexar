@@ -33,12 +33,12 @@ export function MealCard({ meal, entries, onLog, onPressEntry, onClear }: MealCa
       className="bg-white rounded-2xl px-4 py-4 flex-row items-center"
       style={{ gap: 12 }}
     >
-      <View className="w-10 h-10 rounded-full bg-blue-50 items-center justify-center">
+      <View className="w-10 h-10 rounded-full bg-primary-soft items-center justify-center">
         <Ionicons name={MEAL_ICONS[meal]} size={18} color={appColors.primary} />
       </View>
 
       <View className="flex-1">
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           {MEAL_LABELS[meal]}
         </AppText>
         {hasEntries && (
@@ -60,7 +60,7 @@ export function MealCard({ meal, entries, onLog, onPressEntry, onClear }: MealCa
         </Pressable>
       )}
 
-      <Pressable onPress={onLog} className="bg-blue-50 px-4 py-2 rounded-full">
+      <Pressable onPress={onLog} className="bg-primary-soft px-4 py-2 rounded-full">
         <AppText className="text-primary text-sm" fontWeight="bold">
           Log
         </AppText>

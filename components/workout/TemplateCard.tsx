@@ -25,15 +25,15 @@ export function TemplateCard({
     >
       <View className="flex-row items-start justify-between">
         <AppText
-          className="text-gray-900 text-base flex-1"
+          className="text-ink text-base flex-1"
           fontWeight="bold"
           numberOfLines={1}
         >
           {title}
         </AppText>
         <Pressable onPress={onPressMenu} hitSlop={8}>
-          <View className="w-6 h-6 rounded-full bg-blue-50 items-center justify-center">
-            <Ionicons name="ellipsis-horizontal" size={14} color="#016F47" />
+          <View className="w-6 h-6 rounded-full bg-primary-soft items-center justify-center">
+            <Ionicons name="ellipsis-horizontal" size={14} color="#E1290A" />
           </View>
         </Pressable>
       </View>

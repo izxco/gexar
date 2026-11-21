@@ -4,12 +4,11 @@ const CACHE_FILE = `${FileSystem.documentDirectory || ""}gexar_cache.json`;
 
 // In-memory store for instant synchronous read/write
 const memoryStore = new Map<string, string>();
-let isLoaded = false;
+let loadPromise: Promise<void> | null = null;
 let saveTimeout: ReturnType<typeof setTimeout> | null = null;
 
-// Load persisted data on startup
-export async function initCache(): Promise<void> {
-  if (isLoaded || !FileSystem.documentDirectory) return;
+async function loadFromDisk(): Promise<void> {
+  if (!FileSystem.documentDirectory) return;
   try {
     const info = await FileSystem.getInfoAsync(CACHE_FILE);
     if (info.exists) {
@@ -17,15 +16,22 @@ export async function initCache(): Promise<void> {
       const parsed = JSON.parse(content);
       if (typeof parsed === "object" && parsed !== null) {
         for (const [k, v] of Object.entries(parsed)) {
-          memoryStore.set(k, String(v));
+          // Don't clobber keys already written in memory during startup.
+          if (!memoryStore.has(k)) memoryStore.set(k, String(v));
         }
       }
     }
   } catch (e) {
     console.warn("[Cache] Could not load persisted cache:", e);
-  } finally {
-    isLoaded = true;
   }
+}
+
+// Load persisted data on startup. Safe to call many times: every caller
+// awaits the same single read. The app must await this before any provider
+// reads from the cache (see app/_layout.tsx).
+export function initCache(): Promise<void> {
+  if (!loadPromise) loadPromise = loadFromDisk();
+  return loadPromise;
 }
 
 // Start loading immediately in background
@@ -115,4 +121,6 @@ export const CACHE_KEYS = {
   WORKOUTS: "workouts",
   FOOD_ENTRIES_PREFIX: "food_entries",
   FOOD_HISTORY: "food_history",
+  FINANCE_TRANSACTIONS: "finance_transactions",
+  NOTES_PAGES: "notes_pages",
 } as const;

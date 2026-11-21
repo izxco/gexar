@@ -122,11 +122,11 @@ export default function ActiveWorkoutScreen() {
   };
 
   if (!session) {
-    return <View className="flex-1 bg-white" style={{ paddingTop: insets.top }} />;
+    return <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }} />;
   }
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
       <View className="flex-row items-center justify-between px-4 py-2">
         <Pressable
           hitSlop={8}
@@ -161,14 +161,14 @@ export default function ActiveWorkoutScreen() {
         >
           <View className="flex-row items-center gap-2">
             <AppText
-              className="text-gray-900 flex-1"
+              className="text-ink flex-1"
               fontWeight="bold"
               style={{ fontSize: 28 }}
             >
               {session.name}
             </AppText>
-            <View className="w-7 h-7 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name="ellipsis-horizontal" size={15} color="#016F47" />
+            <View className="w-7 h-7 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name="ellipsis-horizontal" size={15} color="#E1290A" />
             </View>
           </View>
 
@@ -217,7 +217,7 @@ export default function ActiveWorkoutScreen() {
                 params: { target: "session" },
               })
             }
-            className="bg-blue-50 rounded-xl py-3.5 mt-6 items-center"
+            className="bg-primary-soft rounded-xl py-3.5 mt-6 items-center"
             style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
           >
             <AppText className="text-primary text-base" fontWeight="bold">

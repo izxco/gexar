@@ -129,7 +129,7 @@ function MacroColumn({
       <AppText className="text-xs" fontWeight="bold" style={{ color }}>
         {Math.round(pct)}%
       </AppText>
-      <AppText className="text-gray-900 text-lg" fontWeight="bold">
+      <AppText className="text-ink text-lg" fontWeight="bold">
         {Math.round(value * 10) / 10} g
       </AppText>
       <AppText className="text-gray-400 text-xs">{label}</AppText>
@@ -164,7 +164,7 @@ function NutritionRow({ label, value }: { label: string; value: string }) {
   return (
     <View className="flex-row items-center justify-between py-2 border-b border-gray-100">
       <AppText className="text-gray-500 text-sm">{label}</AppText>
-      <AppText className="text-gray-900 text-sm" fontWeight="bold">
+      <AppText className="text-ink text-sm" fontWeight="bold">
         {value}
       </AppText>
     </View>
@@ -369,7 +369,7 @@ export default function EditEntryScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
       <View
         className="flex-row items-center justify-between px-4 py-3 border-b border-gray-200"
         style={{ backgroundColor: "#F6F7F9" }}
@@ -377,7 +377,7 @@ export default function EditEntryScreen() {
         <Pressable hitSlop={8} onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={22} color="#111827" />
         </Pressable>
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           {isEditing ? "Edit Entry" : "Add Food"}
         </AppText>
         {isEditing ? (
@@ -402,7 +402,7 @@ export default function EditEntryScreen() {
       </View>
 
       {!isEditing && base.barcode && (
-        <View className="px-5 py-3" style={{ backgroundColor: "#E4EEFB" }}>
+        <View className="px-5 py-3" style={{ backgroundColor: "#FBE6DE" }}>
           <AppText className="text-gray-700 text-sm" numberOfLines={1}>
             This barcode was matched to: “{base.name}”
           </AppText>
@@ -421,7 +421,7 @@ export default function EditEntryScreen() {
         <View className="px-5 pt-5 pb-4">
           <View className="flex-row items-center" style={{ gap: 6 }}>
             <AppText
-              className="text-gray-900 text-2xl flex-shrink"
+              className="text-ink text-2xl flex-shrink"
               fontWeight="bold"
               numberOfLines={2}
             >
@@ -458,7 +458,7 @@ export default function EditEntryScreen() {
                 value={servingsText}
                 onChangeText={setServingsText}
                 keyboardType="decimal-pad"
-                className="text-primary text-sm text-right font-din-rounded-bold"
+                className="text-primary text-sm text-right font-now-bold"
                 style={{ padding: 0, color: appColors.primary }}
               />
             </View>
@@ -484,7 +484,7 @@ export default function EditEntryScreen() {
         {!isEditing && (
           <>
             <View className="px-5 pt-2 pb-1">
-              <AppText className="text-gray-900 text-base" fontWeight="bold">
+              <AppText className="text-ink text-base" fontWeight="bold">
                 Add to Multiple Days
               </AppText>
             </View>
@@ -502,7 +502,7 @@ export default function EditEntryScreen() {
                   >
                     <AppText
                       className={`text-xs mb-1.5 ${
-                        isSelected ? "text-gray-900" : "text-gray-400"
+                        isSelected ? "text-ink" : "text-gray-400"
                       }`}
                       fontWeight={isSelected ? "bold" : "regular"}
                     >
@@ -515,7 +515,7 @@ export default function EditEntryScreen() {
                     >
                       <AppText
                         className={`text-sm ${
-                          isSelected ? "text-white" : "text-gray-900"
+                          isSelected ? "text-white" : "text-ink"
                         }`}
                         fontWeight="bold"
                       >
@@ -565,7 +565,7 @@ export default function EditEntryScreen() {
         <View className="h-px bg-gray-100" />
 
         <View className="px-5 py-5">
-          <AppText className="text-gray-900 text-base mb-3" fontWeight="bold">
+          <AppText className="text-ink text-base mb-3" fontWeight="bold">
             Percent of Daily Goals
           </AppText>
           <View className="flex-row" style={{ gap: 10 }}>
@@ -582,7 +582,7 @@ export default function EditEntryScreen() {
           onPress={() => setShowNutritionFacts((prev) => !prev)}
           className="flex-row items-center justify-between px-5 py-5"
         >
-          <AppText className="text-gray-900 text-base" fontWeight="bold">
+          <AppText className="text-ink text-base" fontWeight="bold">
             Nutrition Facts
           </AppText>
           <View className="flex-row items-center" style={{ gap: 4 }}>

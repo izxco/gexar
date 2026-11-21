@@ -1,0 +1,2 @@
+- Instrument Serif — SIL Open Font License 1.1 — https://github.com/google/fonts/tree/main/ofl/instrumentserif
+- Now — Copyright (c) 2015 Alfredo Marco Pradil, SIL Open Font License, Reserved Font Name "Now" — https://fontlibrary.org/en/font/now

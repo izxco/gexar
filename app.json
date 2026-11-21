@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "GEXAR FIT",
+    "name": "Gexar Pocket",
     "slug": "gexar-fit",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,12 +13,13 @@
       "bundleIdentifier": "com.gexar.fit",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
-        "NSCameraUsageDescription": "GEXAR FIT usa la fotocamera per scansionare i codici a barre degli alimenti."
+        "NSCameraUsageDescription": "Gexar usa la fotocamera per scansionare i codici a barre degli alimenti."
       }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#016F47"
+        "backgroundColor": "#E1290A",
+        "foregroundImage": "./assets/images/adaptive-icon.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -44,22 +45,22 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "GEXAR FIT usa la fotocamera per scansionare i codici a barre degli alimenti."
+          "cameraPermission": "Gexar usa la fotocamera per scansionare i codici a barre degli alimenti."
         }
       ],
       [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 100,
+          "imageWidth": 220,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#E1290A"
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "GEXAR FIT accede alle foto per impostare la tua immagine profilo."
+          "photosPermission": "Gexar accede alle foto per impostare la tua immagine profilo."
         }
       ],
       "expo-build-properties",

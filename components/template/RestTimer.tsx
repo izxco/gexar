@@ -42,7 +42,7 @@ export function RestTimer({
       className="py-1"
       style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}
     >
-      <View className="h-8 rounded-lg bg-blue-100 overflow-hidden justify-center">
+      <View className="h-8 rounded-lg bg-primary-soft overflow-hidden justify-center">
         <View
           className="absolute left-0 top-0 bottom-0 bg-primary"
           style={{ width: `${progress * 100}%` }}

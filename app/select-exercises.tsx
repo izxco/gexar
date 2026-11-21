@@ -54,14 +54,14 @@ export default function SelectExercisesScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
       <View className="flex-row items-center justify-between px-4 py-2">
         <Pressable hitSlop={8} onPress={() => router.back()}>
           <AppText className="text-primary text-base" fontWeight="bold">
             Cancel
           </AppText>
         </Pressable>
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           Add Exercise
         </AppText>
         <View style={{ width: 52 }} />
@@ -75,7 +75,7 @@ export default function SelectExercisesScreen() {
             onChangeText={setSearch}
             placeholder="Search"
             placeholderTextColor="#9ca3af"
-            className="flex-1 ml-2 text-gray-900 font-din-rounded-regular"
+            className="flex-1 ml-2 text-ink font-now-regular"
             style={{ fontSize: 16 }}
           />
         </View>

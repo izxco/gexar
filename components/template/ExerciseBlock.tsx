@@ -158,13 +158,13 @@ export function ExerciseBlock({
         </AppText>
         <View className="flex-row items-center gap-2">
           <Pressable hitSlop={6}>
-            <View className="w-8 h-8 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name="git-branch-outline" size={15} color="#016F47" />
+            <View className="w-8 h-8 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name="git-branch-outline" size={15} color="#E1290A" />
             </View>
           </Pressable>
           <Pressable hitSlop={6} onPress={onRemove}>
-            <View className="w-8 h-8 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name="ellipsis-horizontal" size={15} color="#016F47" />
+            <View className="w-8 h-8 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name="ellipsis-horizontal" size={15} color="#E1290A" />
             </View>
           </Pressable>
         </View>

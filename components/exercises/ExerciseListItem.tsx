@@ -26,7 +26,7 @@ export function ExerciseListItem({
       <ExerciseAvatar name={exercise.name} bodyPart={exercise.bodyPart} />
 
       <View className="flex-1">
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           {exercise.name}
         </AppText>
         <AppText className="text-gray-500 text-sm mt-0.5">

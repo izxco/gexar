@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { Alert, Pressable, SectionList, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Alert, SectionList, View } from "react-native";
+import { FITNESS_SEGMENTS, ModuleHeader, SegmentedNav } from "@/components/brand/ModuleHeader";
+import { IconTile } from "@/components/brand/Icon3D";
 import { ActionMenu } from "@/components/ActionMenu";
 import { AppText } from "@/components/AppText";
 import { WorkoutHistoryCard } from "@/components/history/WorkoutHistoryCard";
@@ -15,18 +15,17 @@ interface MonthSection {
 }
 
 export default function HistoryScreen() {
-  const insets = useSafeAreaInsets();
   const { items, refreshing, refresh, removeWorkout } = useWorkouts();
   const [menuWorkout, setMenuWorkout] = useState<Workout | null>(null);
 
   const confirmDelete = (workout: Workout) => {
     Alert.alert(
-      "Delete workout?",
-      `"${workout.name}" will be permanently removed from your history.`,
+      "Eliminare l'allenamento?",
+      `"${workout.name}" verrà rimosso definitivamente dallo storico.`,
       [
-        { text: "Cancel", style: "cancel" },
+        { text: "Annulla", style: "cancel" },
         {
-          text: "Delete",
+          text: "Elimina",
           style: "destructive",
           onPress: () => removeWorkout(workout.id),
         },
@@ -46,32 +45,27 @@ export default function HistoryScreen() {
   }, [items]);
 
   return (
-    <View className="flex-1 bg-gray-50" style={{ paddingTop: insets.top }}>
-      <View className="flex-row items-center justify-end px-5 pt-2">
-        <Pressable hitSlop={8} className="flex-row items-center gap-1">
-          <AppText className="text-primary text-base" fontWeight="bold">
-            Calendar
-          </AppText>
-        </Pressable>
-      </View>
-
-      <View className="px-5 pt-1 pb-2">
-        <AppText className="text-gray-900 text-4xl" fontWeight="bold">
-          History
-        </AppText>
-      </View>
+    <View className="flex-1 bg-canvas">
+      <ModuleHeader
+        module="fitness"
+        title="Il tuo"
+        accent="storico"
+        subtitle={`${items.length} ${items.length === 1 ? "allenamento completato" : "allenamenti completati"}`}
+      >
+        <SegmentedNav items={FITNESS_SEGMENTS} active="history" />
+      </ModuleHeader>
 
       <SectionList<Workout, MonthSection>
         sections={sections}
         keyExtractor={(item) => item.id}
         stickySectionHeadersEnabled={false}
-        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 120 }}
+        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 40 }}
         showsVerticalScrollIndicator={false}
         onRefresh={refresh}
         refreshing={refreshing}
         renderSectionHeader={({ section }) => (
           <AppText
-            className="text-gray-500 text-sm pt-4 pb-2"
+            className="text-muted-foreground text-xs tracking-widest pt-4 pb-2"
             fontWeight="bold"
           >
             {section.title}
@@ -87,12 +81,12 @@ export default function HistoryScreen() {
         )}
         ListEmptyComponent={
           <View className="items-center justify-center py-24 px-6">
-            <Ionicons name="time-outline" size={64} color="#ddd" />
-            <AppText className="text-gray-900 text-xl mt-4" fontWeight="bold">
-              No workouts yet
+            <IconTile name="calendar" size={84} />
+            <AppText variant="serif" className="text-ink text-[28px] mt-4">
+              Ancora nessun allenamento
             </AppText>
-            <AppText className="text-gray-500 text-center mt-2">
-              Your completed workouts will show up here.
+            <AppText className="text-muted-foreground text-center mt-2">
+              Gli allenamenti completati compariranno qui.
             </AppText>
           </View>
         }
@@ -103,7 +97,7 @@ export default function HistoryScreen() {
         title={menuWorkout?.name}
         items={[
           {
-            label: "Delete Workout",
+            label: "Elimina allenamento",
             icon: "trash-outline",
             destructive: true,
             onPress: () => {
