@@ -32,7 +32,7 @@ export function FinishWorkoutDialog({
             🎉
           </AppText>
           <AppText
-            className="text-gray-900 text-xl text-center mt-2"
+            className="text-ink text-xl text-center mt-2"
             fontWeight="bold"
           >
             Finish Workout?
@@ -75,7 +75,7 @@ export function FinishWorkoutDialog({
             className="bg-gray-100 rounded-2xl py-4 mt-3 items-center"
             style={({ pressed }) => ({ opacity: pressed ? 0.8 : 1 })}
           >
-            <AppText className="text-gray-900 text-base" fontWeight="bold">
+            <AppText className="text-ink text-base" fontWeight="bold">
               Cancel
             </AppText>
           </Pressable>

@@ -6,7 +6,8 @@ import {
   View,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { FITNESS_SEGMENTS, ModuleHeader, SegmentedNav } from "@/components/brand/ModuleHeader";
+import { IconTile } from "@/components/brand/Icon3D";
 import { AppText } from "@/components/AppText";
 import { FilterChip } from "@/components/exercises/FilterChip";
 import { ExerciseListItem } from "@/components/exercises/ExerciseListItem";
@@ -20,7 +21,6 @@ import {
 import { groupExercises } from "@/lib/group-exercises";
 
 export default function ExercisesScreen() {
-  const insets = useSafeAreaInsets();
   const [search, setSearch] = useState("");
   const [bodyPart, setBodyPart] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
@@ -32,33 +32,20 @@ export default function ExercisesScreen() {
   );
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
-      <View className="flex-row items-center justify-between px-5 pt-2">
-        <Pressable hitSlop={8}>
-          <AppText className="text-primary text-base" fontWeight="bold">
-            New
-          </AppText>
-        </Pressable>
-        <Pressable hitSlop={8}>
-          <Ionicons name="ellipsis-horizontal" size={22} color="#016F47" />
-        </Pressable>
-      </View>
-
-      <View className="px-5 pt-1 pb-3">
-        <AppText className="text-gray-900 text-4xl" fontWeight="bold">
-          Exercises
-        </AppText>
-      </View>
+    <View className="flex-1 bg-canvas">
+      <ModuleHeader module="fitness" title="Libreria" accent="esercizi">
+        <SegmentedNav items={FITNESS_SEGMENTS} active="exercises" />
+      </ModuleHeader>
 
       <View className="px-5">
-        <View className="flex-row items-center bg-gray-100 rounded-xl px-3 h-11">
+        <View className="flex-row items-center bg-surface border border-line rounded-2xl px-3 h-11">
           <Ionicons name="search" size={18} color="#9ca3af" />
           <TextInput
             value={search}
             onChangeText={setSearch}
-            placeholder="Search"
+            placeholder="Cerca esercizio"
             placeholderTextColor="#9ca3af"
-            className="flex-1 ml-2 text-gray-900 font-din-rounded-regular"
+            className="flex-1 ml-2 text-ink font-now-regular"
             style={{ fontSize: 16 }}
           />
           {search.length > 0 && (
@@ -70,18 +57,18 @@ export default function ExercisesScreen() {
 
         <View className="flex-row items-center gap-2 mt-3">
           <FilterChip
-            label={bodyPart ?? "Any Body Part"}
+            label={bodyPart ?? "Parte del corpo"}
             active={!!bodyPart}
             onPress={() => setSheet("bodyPart")}
             className="flex-1"
           />
           <FilterChip
-            label={category ?? "Any Category"}
+            label={category ?? "Categoria"}
             active={!!category}
             onPress={() => setSheet("category")}
             className="flex-1"
           />
-          <Pressable className="bg-gray-100 rounded-lg w-11 h-9 items-center justify-center">
+          <Pressable className="bg-surface border border-line rounded-lg w-11 h-9 items-center justify-center">
             <Ionicons name="swap-vertical" size={18} color="#374151" />
           </Pressable>
         </View>
@@ -92,11 +79,11 @@ export default function ExercisesScreen() {
         keyExtractor={(item) => item.id}
         stickySectionHeadersEnabled={false}
         className="flex-1 mt-2"
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: 40 }}
         showsVerticalScrollIndicator={false}
         renderSectionHeader={({ section }) => (
-          <View className="px-5 pt-3 pb-1 bg-white">
-            <AppText className="text-gray-400 text-sm" fontWeight="bold">
+          <View className="px-5 pt-3 pb-1 bg-canvas">
+            <AppText className="text-muted-foreground text-xs tracking-widest" fontWeight="bold">
               {section.title}
             </AppText>
           </View>
@@ -105,20 +92,20 @@ export default function ExercisesScreen() {
           <ExerciseListItem exercise={item} showChevron />
         )}
         ItemSeparatorComponent={() => (
-          <View className="h-px bg-gray-100 ml-16" />
+          <View className="h-px bg-line ml-16" />
         )}
         ListEmptyComponent={
           <View className="items-center justify-center py-20 px-6">
-            <Ionicons name="barbell-outline" size={56} color="#ddd" />
-            <AppText className="text-gray-500 mt-3">No exercises found</AppText>
+            <IconTile name="zoom" size={72} />
+            <AppText className="text-muted-foreground mt-3">Nessun esercizio trovato</AppText>
           </View>
         }
       />
 
       <OptionSheet
         visible={sheet === "bodyPart"}
-        title="Body Part"
-        allLabel="Any Body Part"
+        title="Parte del corpo"
+        allLabel="Tutte"
         options={BODY_PARTS}
         selected={bodyPart}
         onSelect={setBodyPart}
@@ -126,8 +113,8 @@ export default function ExercisesScreen() {
       />
       <OptionSheet
         visible={sheet === "category"}
-        title="Category"
-        allLabel="Any Category"
+        title="Categoria"
+        allLabel="Tutte"
         options={CATEGORIES}
         selected={category}
         onSelect={setCategory}

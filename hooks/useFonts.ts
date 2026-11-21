@@ -1,9 +1,13 @@
 import { useFonts as useExpoFonts } from "expo-font";
+import { fonts } from "@/lib/constants";
 
 export function useFonts() {
   const [fontsLoaded, fontError] = useExpoFonts({
-    "din-rounded": require("../assets/fonts/din-next-rounded-regular.ttf"),
-    "din-rounded-bold": require("../assets/fonts/din-next-rounded-bold.ttf"),
+    [fonts.regular]: require("../assets/fonts/Now-Regular.otf"),
+    [fonts.medium]: require("../assets/fonts/Now-Medium.otf"),
+    [fonts.bold]: require("../assets/fonts/Now-Bold.otf"),
+    [fonts.serif]: require("../assets/fonts/InstrumentSerif-Regular.ttf"),
+    [fonts.serifItalic]: require("../assets/fonts/InstrumentSerif-Italic.ttf"),
   });
 
   return { fontsLoaded, fontError };

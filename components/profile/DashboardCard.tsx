@@ -20,10 +20,10 @@ export function DashboardCard({
   rightLabels,
 }: DashboardCardProps) {
   return (
-    <View className="bg-white rounded-2xl border border-gray-200 p-4">
+    <View className="bg-surface rounded-3xl border border-line p-4">
       <View className="flex-row items-start justify-between">
         <View className="flex-1 pr-2">
-          <AppText className="text-gray-900 text-lg" fontWeight="bold">
+          <AppText className="text-ink text-lg" fontWeight="bold">
             {title}
           </AppText>
           {subtitle && (
@@ -34,13 +34,13 @@ export function DashboardCard({
         </View>
         <View className="flex-row items-center gap-2">
           <Pressable hitSlop={6}>
-            <View className="w-7 h-7 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name={accentIcon} size={15} color="#016F47" />
+            <View className="w-7 h-7 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name={accentIcon} size={15} color="#E1290A" />
             </View>
           </Pressable>
           <Pressable hitSlop={6}>
-            <View className="w-7 h-7 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name="ellipsis-horizontal" size={15} color="#016F47" />
+            <View className="w-7 h-7 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name="ellipsis-horizontal" size={15} color="#E1290A" />
             </View>
           </Pressable>
         </View>

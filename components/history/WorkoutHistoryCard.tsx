@@ -35,12 +35,12 @@ export function WorkoutHistoryCard({
   return (
     <View className="bg-white rounded-2xl border border-gray-200 px-4 py-4">
       <View className="flex-row items-start justify-between">
-        <AppText className="text-gray-900 text-xl flex-1" fontWeight="bold">
+        <AppText className="text-ink text-xl flex-1" fontWeight="bold">
           {workout.name}
         </AppText>
         <Pressable onPress={onPressMenu} hitSlop={8}>
-          <View className="w-7 h-7 rounded-full bg-blue-50 items-center justify-center">
-            <Ionicons name="ellipsis-horizontal" size={16} color="#016F47" />
+          <View className="w-7 h-7 rounded-full bg-primary-soft items-center justify-center">
+            <Ionicons name="ellipsis-horizontal" size={16} color="#E1290A" />
           </View>
         </Pressable>
       </View>

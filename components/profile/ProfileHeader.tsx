@@ -32,11 +32,11 @@ export function ProfileHeader({
         </AppText>
       </View>
       <View className="flex-1">
-        <AppText className="text-gray-900 text-lg" fontWeight="bold">
+        <AppText variant="serif" className="text-ink text-[26px] leading-[30px]">
           {name}
         </AppText>
-        <AppText className="text-gray-500 text-sm mt-0.5">
-          {workoutCount} workouts
+        <AppText className="text-muted-foreground text-sm mt-0.5">
+          {workoutCount} {workoutCount === 1 ? "allenamento" : "allenamenti"}
         </AppText>
       </View>
       <Ionicons name="chevron-forward" size={20} color="#9ca3af" />

@@ -68,7 +68,7 @@ export function NameStep({ onComplete }: NameStepProps) {
       <View className="flex-1">
         <AppText className="text-gray-500 text-sm mb-2">Full name</AppText>
         <TextInput
-          className="text-gray-900 text-lg py-3 border-b border-gray-200"
+          className="text-ink text-lg py-3 border-b border-gray-200"
           value={fullName}
           onChangeText={(t) => {
             setFullName(t);

@@ -20,7 +20,7 @@ export function CaloriesCard({ consumed, goal }: CaloriesCardProps) {
         </AppText>
       </View>
       <View className="flex-row items-baseline mb-3">
-        <AppText className="text-gray-900 text-3xl" fontWeight="bold">
+        <AppText className="text-ink text-3xl" fontWeight="bold">
           {Math.round(consumed).toLocaleString()} cal
         </AppText>
         <AppText className="text-gray-400 text-base"> / {goal.toLocaleString()}</AppText>

@@ -70,7 +70,7 @@ export function CalorieRing({
           justifyContent: "center",
         }}
       >
-        <AppText className="text-gray-900 text-2xl" fontWeight="bold">
+        <AppText className="text-ink text-2xl" fontWeight="bold">
           {Math.round(calories)}
         </AppText>
         <AppText className="text-gray-400 text-xs">cal</AppText>

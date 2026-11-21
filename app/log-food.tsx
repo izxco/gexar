@@ -50,7 +50,7 @@ function FoodRow({
       <View className="flex-1">
         <View className="flex-row items-center" style={{ gap: 6 }}>
           <AppText
-            className="text-gray-900 text-base flex-shrink"
+            className="text-ink text-base flex-shrink"
             fontWeight="bold"
             numberOfLines={1}
           >
@@ -212,7 +212,7 @@ export default function LogFoodScreen() {
             onChangeText={setQuery}
             placeholder="Search Food"
             placeholderTextColor="#9ca3af"
-            className="flex-1 text-gray-900 font-din-rounded-regular"
+            className="flex-1 text-ink font-now-regular"
             style={{ fontSize: 16 }}
             autoFocus
             returnKeyType="search"
@@ -232,7 +232,7 @@ export default function LogFoodScreen() {
               <AppText
                 className={`text-sm pb-2 ${
                   activeTab === tab
-                    ? "text-gray-900 border-b-2 border-gray-900"
+                    ? "text-ink border-b-2 border-gray-900"
                     : "text-gray-400"
                 }`}
                 fontWeight={activeTab === tab ? "bold" : "regular"}
@@ -276,7 +276,7 @@ export default function LogFoodScreen() {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         ListHeaderComponent={
-          <AppText className="text-gray-900 text-lg mb-2" fontWeight="bold">
+          <AppText className="text-ink text-lg mb-2" fontWeight="bold">
             {isSearchMode ? "Search Results" : "History"}
           </AppText>
         }

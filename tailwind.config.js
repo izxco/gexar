@@ -9,8 +9,13 @@ module.exports = {
     extend: {
       colors,
       fontFamily: {
-        "din-rounded": ["din-rounded"],
-        "din-rounded-bold": ["din-rounded-bold"],
+        // Body: Now
+        "now-regular": ["now-regular"],
+        "now-medium": ["now-medium"],
+        "now-bold": ["now-bold"],
+        // Titles: Instrument Serif
+        serif: ["instrument-serif"],
+        "serif-italic": ["instrument-serif-italic"],
       },
     },
   },

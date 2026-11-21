@@ -43,7 +43,7 @@ export function OptionSheet({
         style={{ paddingBottom: insets.bottom + 8, maxHeight: "70%" }}
       >
         <View className="flex-row items-center justify-between px-5 pt-4 pb-2">
-          <AppText className="text-gray-900 text-lg" fontWeight="bold">
+          <AppText className="text-ink text-lg" fontWeight="bold">
             {title}
           </AppText>
           <Pressable onPress={onClose} hitSlop={8}>
@@ -72,7 +72,7 @@ export function OptionSheet({
                   {row.label}
                 </AppText>
                 {isSelected && (
-                  <Ionicons name="checkmark" size={20} color="#016F47" />
+                  <Ionicons name="checkmark" size={20} color="#E1290A" />
                 )}
               </Pressable>
             );

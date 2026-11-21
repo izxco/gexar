@@ -32,7 +32,7 @@ export function SetRow({
     >
       <View className="w-10 items-center">
         <View className="w-7 h-7 rounded-md bg-gray-100 items-center justify-center">
-          <AppText className="text-gray-900 text-sm" fontWeight="bold">
+          <AppText className="text-ink text-sm" fontWeight="bold">
             {index + 1}
           </AppText>
         </View>
@@ -53,7 +53,7 @@ export function SetRow({
           keyboardType="numeric"
           placeholder="0"
           placeholderTextColor="#9ca3af"
-          className="bg-gray-100 rounded-md text-center text-gray-900 font-din-rounded-regular w-14"
+          className="bg-gray-100 rounded-md text-center text-ink font-now-regular w-14"
           style={{ height: 32, fontSize: 15 }}
         />
       </View>
@@ -67,7 +67,7 @@ export function SetRow({
           keyboardType="numeric"
           placeholder="0"
           placeholderTextColor="#9ca3af"
-          className="bg-gray-100 rounded-md text-center text-gray-900 font-din-rounded-regular w-14"
+          className="bg-gray-100 rounded-md text-center text-ink font-now-regular w-14"
           style={{ height: 32, fontSize: 15 }}
         />
       </View>

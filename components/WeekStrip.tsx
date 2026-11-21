@@ -2,7 +2,7 @@ import { Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { AppText } from "@/components/AppText";
 
-const DAY_LABELS = ["S", "M", "T", "W", "T", "F", "S"];
+const DAY_LABELS = ["D", "L", "M", "M", "G", "V", "S"];
 
 function toIso(date: Date): string {
   return date.toISOString().slice(0, 10);
@@ -35,7 +35,7 @@ export function WeekStrip({
   });
 
   return (
-    <View className="flex-row justify-between px-6 mt-5">
+    <View className="flex-row justify-between px-6 mt-2">
       {days.map((d, i) => {
         const iso = toIso(d);
         const isSelected = iso === selectedDate;
@@ -48,9 +48,9 @@ export function WeekStrip({
             className="items-center"
             hitSlop={4}
           >
-            <View className="w-1 h-1 rounded-full mb-1 bg-gray-900" style={{ opacity: isSelected ? 1 : 0 }} />
+            <View className="w-1 h-1 rounded-full mb-1 bg-primary" style={{ opacity: isSelected ? 1 : 0 }} />
             <AppText
-              className={`text-xs mb-1 ${isSelected ? "text-gray-900" : "text-gray-400"}`}
+              className={`text-xs mb-1 ${isSelected ? "text-ink" : "text-gray-400"}`}
               fontWeight={isSelected ? "bold" : "regular"}
             >
               {DAY_LABELS[i]}
@@ -58,7 +58,7 @@ export function WeekStrip({
             <View
               className={`w-8 h-8 rounded-full items-center justify-center border ${
                 isChecked
-                  ? "bg-gray-900 border-gray-900"
+                  ? "bg-primary border-primary"
                   : "border-gray-300 bg-transparent"
               }`}
             >

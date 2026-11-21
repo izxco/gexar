@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { Alert, Pressable, RefreshControl, ScrollView, View } from "react-native";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { AppBar } from "@/components/AppBar";
+import { HeaderPill, ModuleHeader } from "@/components/brand/ModuleHeader";
 import { AppText } from "@/components/AppText";
 import { CaloriesCard } from "@/components/CaloriesCard";
 import { MacrosCard } from "@/components/MacrosCard";
@@ -53,41 +53,19 @@ export default function NutritionScreen() {
 
   return (
     <View className="flex-1 bg-mfp-bg">
-      <View className="bg-mfp-bg-top rounded-b-[28px] pb-4">
-        <AppBar
-          title={
-            <View className="flex-row items-center" style={{ gap: 6 }}>
-              <AppText className="text-gray-900 text-2xl" fontWeight="bold">
-                Nutrizione
-              </AppText>
-              <View className="bg-primary/10 rounded-md px-1.5 py-0.5">
-                <AppText className="text-primary text-[10px] font-bold tracking-wider">
-                  GEXAR FIT
-                </AppText>
-              </View>
-            </View>
-          }
-          rightAction={
-            <Pressable
-              hitSlop={8}
+      <View className="bg-mfp-bg-top rounded-b-[32px] pb-3">
+        <ModuleHeader
+          module="nutrition"
+          title="Diario"
+          accent="pasti"
+          right={
+            <HeaderPill
+              label="Scansiona"
               onPress={() => router.push("/barcode-scan")}
-              className="flex-row items-center gap-1.5 bg-white rounded-full px-3 py-1.5"
-              style={{
-                shadowColor: "#000",
-                shadowOffset: { width: 0, height: 1 },
-                shadowOpacity: 0.1,
-                shadowRadius: 2,
-                elevation: 2,
-              }}
-            >
-              <Ionicons name="barcode-outline" size={18} color="#016F47" />
-              <AppText className="text-gray-900 text-xs" fontWeight="bold">
-                Scansiona
-              </AppText>
-            </Pressable>
+              icon={<Ionicons name="barcode-outline" size={15} color="#E1290A" />}
+            />
           }
         />
-
         <WeekStrip
           selectedDate={selectedDate}
           selectedDateHasEntries={entries.length > 0}
@@ -116,15 +94,15 @@ export default function NutritionScreen() {
         />
 
         <View className="flex-row items-center justify-between mt-2">
-          <AppText className="text-gray-900 text-xl" fontWeight="bold">
-            Diario Pasti
+          <AppText variant="serif" className="text-ink text-[28px]">
+            Pasti di oggi
           </AppText>
           <Pressable
             hitSlop={8}
             onPress={() => router.push("/barcode-scan")}
             className="flex-row items-center gap-1"
           >
-            <Ionicons name="scan" size={16} color="#016F47" />
+            <Ionicons name="scan" size={16} color="#E1290A" />
             <AppText className="text-primary text-sm" fontWeight="bold">
               Scanner Rapido
             </AppText>

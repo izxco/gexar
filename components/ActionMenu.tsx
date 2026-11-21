@@ -39,7 +39,7 @@ export function ActionMenu({
       >
         {title && (
           <View className="px-5 pt-4 pb-1">
-            <AppText className="text-gray-900 text-lg" fontWeight="bold">
+            <AppText className="text-ink text-lg" fontWeight="bold">
               {title}
             </AppText>
           </View>
@@ -64,7 +64,7 @@ export function ActionMenu({
               )}
               <AppText
                 className={`text-base ${
-                  item.destructive ? "text-red-500" : "text-gray-900"
+                  item.destructive ? "text-red-500" : "text-ink"
                 }`}
                 fontWeight="bold"
               >
@@ -79,7 +79,7 @@ export function ActionMenu({
           className="mx-5 mt-2 bg-gray-100 rounded-2xl py-4 items-center"
           style={({ pressed }) => ({ opacity: pressed ? 0.8 : 1 })}
         >
-          <AppText className="text-gray-900 text-base" fontWeight="bold">
+          <AppText className="text-ink text-base" fontWeight="bold">
             Cancel
           </AppText>
         </Pressable>

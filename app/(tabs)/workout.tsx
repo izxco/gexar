@@ -1,8 +1,8 @@
 import { Pressable, ScrollView, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { AppButton } from "@/components/AppButton";
+import { FITNESS_SEGMENTS, ModuleHeader, SegmentedNav } from "@/components/brand/ModuleHeader";
+import { Icon3D } from "@/components/brand/Icon3D";
 import { AppText } from "@/components/AppText";
 import { TemplateCard } from "@/components/workout/TemplateCard";
 import {
@@ -33,38 +33,42 @@ function GridCell({ children }: { children: React.ReactNode }) {
 }
 
 export default function WorkoutScreen() {
-  const insets = useSafeAreaInsets();
   const { items: templates } = useTemplates();
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
-      <View className="flex-row items-center justify-end px-5 pt-2">
-        <Pressable hitSlop={8}>
-          <Ionicons name="search" size={22} color="#016F47" />
-        </Pressable>
-      </View>
-
+    <View className="flex-1 bg-canvas">
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ paddingBottom: 120, paddingHorizontal: 20 }}
+        contentContainerStyle={{ paddingBottom: 40 }}
         showsVerticalScrollIndicator={false}
       >
-        <AppText className="text-gray-900 text-4xl mt-1" fontWeight="bold">
-          Start Workout
-        </AppText>
+        <ModuleHeader module="fitness" title="Pronto ad" accent="allenarti?">
+          <SegmentedNav items={FITNESS_SEGMENTS} active="workout" />
+        </ModuleHeader>
+        <View className="px-5">
 
-        <AppText className="text-gray-900 text-lg mt-5" fontWeight="bold">
-          Quick Start
-        </AppText>
-        <AppButton
-          text="Start an Empty Workout"
-          className="mt-3"
+        <Pressable
           onPress={() => router.push("/active-workout")}
-        />
+          className="bg-primary rounded-3xl p-5 flex-row items-center mt-1"
+          style={{ gap: 14 }}
+        >
+          <View className="bg-white rounded-2xl items-center justify-center" style={{ width: 58, height: 58 }}>
+            <Icon3D name="flash" size={46} />
+          </View>
+          <View className="flex-1">
+            <AppText variant="serif" className="text-white text-[26px] leading-[30px]">
+              Allenamento libero
+            </AppText>
+            <AppText className="text-white/80 text-xs mt-1">
+              Parti subito e aggiungi gli esercizi mentre ti alleni
+            </AppText>
+          </View>
+          <Ionicons name="arrow-forward" size={20} color="#fff" />
+        </Pressable>
 
         <View className="flex-row items-center justify-between mt-7">
-          <AppText className="text-gray-900 text-2xl" fontWeight="bold">
-            Templates
+          <AppText variant="serif" className="text-ink text-[30px]">
+            Schede
           </AppText>
           <View className="flex-row items-center gap-4">
             <Pressable
@@ -72,24 +76,21 @@ export default function WorkoutScreen() {
               className="flex-row items-center gap-1"
               onPress={() => router.push("/create-template")}
             >
-              <Ionicons name="add" size={18} color="#016F47" />
+              <Ionicons name="add" size={18} color="#E1290A" />
               <AppText className="text-primary text-base" fontWeight="bold">
-                Template
+                Nuova scheda
               </AppText>
-            </Pressable>
-            <Pressable hitSlop={8}>
-              <Ionicons name="folder-outline" size={20} color="#016F47" />
             </Pressable>
           </View>
         </View>
 
-        <AppText className="text-gray-500 text-sm mt-4" fontWeight="bold">
-          My Templates ({templates.length})
+        <AppText className="text-muted-foreground text-xs tracking-widest mt-5" fontWeight="bold">
+          LE MIE SCHEDE ({templates.length})
         </AppText>
         {templates.length === 0 ? (
           <View className="mt-3 border border-dashed border-gray-300 rounded-2xl px-4 py-6 items-center">
             <AppText className="text-gray-500 text-center">
-              No templates yet. Tap “Template” to create your first one.
+              Nessuna scheda. Tocca “Nuova scheda” per crearne una.
             </AppText>
           </View>
         ) : (
@@ -118,8 +119,8 @@ export default function WorkoutScreen() {
           </TemplateGrid>
         )}
 
-        <AppText className="text-gray-500 text-sm mt-6" fontWeight="bold">
-          Example Templates ({EXAMPLE_TEMPLATES.length})
+        <AppText className="text-muted-foreground text-xs tracking-widest mt-6" fontWeight="bold">
+          ESEMPI ({EXAMPLE_TEMPLATES.length})
         </AppText>
         <TemplateGrid>
           {EXAMPLE_TEMPLATES.map((template) => (
@@ -131,6 +132,7 @@ export default function WorkoutScreen() {
             </GridCell>
           ))}
         </TemplateGrid>
+        </View>
       </ScrollView>
     </View>
   );

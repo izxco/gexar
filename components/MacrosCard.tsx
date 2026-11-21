@@ -15,11 +15,11 @@ function MacroColumn({ label, grams, goal, colorClassName }: MacroColumnProps) {
 
   return (
     <View className="flex-1">
-      <AppText className="text-gray-900 text-sm mb-1" fontWeight="bold">
+      <AppText className="text-ink text-sm mb-1" fontWeight="bold">
         {label}
       </AppText>
       <View className="flex-row items-baseline mb-2">
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           {Math.round(grams)} g
         </AppText>
         <AppText className="text-gray-400 text-xs"> / {goal}</AppText>

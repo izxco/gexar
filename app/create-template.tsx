@@ -82,7 +82,7 @@ export default function CreateTemplateScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-canvas" style={{ paddingTop: insets.top }}>
       <View className="flex-row items-center justify-between px-4 py-2">
         <Pressable
           hitSlop={8}
@@ -91,7 +91,7 @@ export default function CreateTemplateScreen() {
         >
           <Ionicons name="close" size={20} color="#111" />
         </Pressable>
-        <AppText className="text-gray-900 text-base" fontWeight="bold">
+        <AppText className="text-ink text-base" fontWeight="bold">
           New Template
         </AppText>
         <Pressable
@@ -124,11 +124,11 @@ export default function CreateTemplateScreen() {
               onChangeText={draft.setName}
               placeholder="New Template"
               placeholderTextColor="#9ca3af"
-              className="flex-1 text-gray-900 font-din-rounded-bold"
+              className="flex-1 text-ink font-now-bold"
               style={{ fontSize: 28 }}
             />
-            <View className="w-7 h-7 rounded-full bg-blue-50 items-center justify-center">
-              <Ionicons name="ellipsis-horizontal" size={15} color="#016F47" />
+            <View className="w-7 h-7 rounded-full bg-primary-soft items-center justify-center">
+              <Ionicons name="ellipsis-horizontal" size={15} color="#E1290A" />
             </View>
           </View>
 
@@ -156,7 +156,7 @@ export default function CreateTemplateScreen() {
 
           <Pressable
             onPress={() => router.push("/select-exercises")}
-            className="bg-blue-50 rounded-xl py-3.5 mt-6 items-center"
+            className="bg-primary-soft rounded-xl py-3.5 mt-6 items-center"
             style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
           >
             <AppText className="text-primary text-base" fontWeight="bold">

@@ -60,7 +60,7 @@ export const AddMenu = forwardRef<AddMenuRef, AddMenuProps>(function AddMenu(
       label: "Log Food",
       icon: "search",
       bg: "#E7EEFE",
-      color: "#1D63ED",
+      color: "#E1290A",
       onPress: () => {
         close();
         router.push({ pathname: "/log-food", params: meal ? { meal } : {} });
@@ -99,7 +99,7 @@ export const AddMenu = forwardRef<AddMenuRef, AddMenuProps>(function AddMenu(
   ];
 
   const rows: MenuRow[] = [
-    { key: "water", label: "Water", icon: "water", color: "#1D63ED" },
+    { key: "water", label: "Water", icon: "water", color: "#E1290A" },
     { key: "weight", label: "Weight", icon: "bookmark", color: "#0FA487" },
     { key: "exercise", label: "Exercise", icon: "flame", color: "#F5A623" },
   ];
@@ -116,7 +116,7 @@ export const AddMenu = forwardRef<AddMenuRef, AddMenuProps>(function AddMenu(
           disappearsOnIndex={-1}
         />
       )}
-      backgroundStyle={{ borderRadius: 24, backgroundColor: "#EEF1F5" }}
+      backgroundStyle={{ borderRadius: 24, backgroundColor: "#F7F3EE" }}
     >
       <BottomSheetView>
         <View className="px-4 pt-2 pb-8">
@@ -135,7 +135,7 @@ export const AddMenu = forwardRef<AddMenuRef, AddMenuProps>(function AddMenu(
                 >
                   <Ionicons name={tile.icon} size={20} color={tile.color} />
                 </View>
-                <AppText className="text-gray-900 text-sm" fontWeight="bold">
+                <AppText className="text-ink text-sm" fontWeight="bold">
                   {tile.label}
                 </AppText>
               </Pressable>
@@ -153,7 +153,7 @@ export const AddMenu = forwardRef<AddMenuRef, AddMenuProps>(function AddMenu(
                 style={{ gap: 12 }}
               >
                 <Ionicons name={row.icon} size={18} color={row.color} />
-                <AppText className="text-gray-900 text-base">
+                <AppText className="text-ink text-base">
                   {row.label}
                 </AppText>
               </Pressable>

@@ -95,7 +95,7 @@ export function RestTimerSheet({
 
             <Pressable
               onPress={onSkip}
-              className="h-14 rounded-2xl bg-blue-500 items-center justify-center mt-3"
+              className="h-14 rounded-2xl bg-primary-soft0 items-center justify-center mt-3"
               style={({ pressed }) => ({ opacity: pressed ? 0.8 : 1 })}
             >
               <AppText className="text-white text-base" fontWeight="bold">
